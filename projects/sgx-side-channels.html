@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<title>Yinqian Zhang's Homepage</title>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+	<meta name="description" content="Assistant Professor, Department of Computer Sciense and Engineering, the Ohio State University">
+	<meta name="author" content="Yinqian Zhang">
+	<meta name="robots" content="noarchive, nosnippet, noimageindex"/>
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="expires" content="-1" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-17736033-2', 'auto');
+  ga('send', 'pageview');
+
+	</script>
+</head>
+
+<body>
+
+<br><br>
+	<div class="blocks">
+		<h2>Side Channels on Intel SGX</h2>
+		The projects have been supported by grant <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1566444" target=_blank>1566444</a> and <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1750809" target=_blank>1750809</a> from national science foundation.
+		<hr size=2 color="#C4CAE9">
+		
+		Intel Software Guard eXtension (SGX) holds promise for drastically improving software security by removing the privileged system software from the trusted computing base. This processor extension provides software applications shielded execution environments, called enclaves, to run private code or operate sensitive data, where both the code and data are isolated from the rest of software systems. Even privileged software layers such as the operating systems are not allowed to directly inspect or manipulate the memory inside the enclaves. <br><br>
+
+		However, SGX is not bulletproof. Although the software running inside SGX enclaves is shielded from the untrusted operating systems, it still requires basic operating system supports such as scheduling, paging, networking and I/O, and various shared micro-architectural resources, such as CPU execution units, caches, TLBs, and DRAMs, with the untrusted system components. Therefore, privileged system software can measure the system resources (e.g., page tables) or micro-architectural resources (e.g., branch target buffers, TLBs, caches and DRAMs) used by enclave programs to infer secrets isolated inside the enclaves. These attacks are called side-channel attacks on SGX. <br><br>
+		
+		The high-level goal of these research projects is to systematically understand the side-channel attack surface of Intel SGX, and then devise effective solutions to these side-channel hazards.<br><br>
+		
+		<ul>
+		
+			<li><strong>(NDSS'19) <a href="../papers/ndss19b.pdf">OBFUSCURO: A Commodity Obfuscation Engine on Intel SGX</a></strong></li>	
+			
+This project aims to develop program obfuscation techniques with Intel SGX. To address side-channel leakage, the project brings forward OBFUSCURO, the first system providing program obfuscation using commodity trusted hardware, Intel SGX. The key idea is to leverage ORAM operations to perform secure code execution and data access. Initially, OBFUSCURO transforms the regular program layout into a side-channel secure and ORAM-compatible layout. Then, OBFUSCURO ensures that its ORAM controller performs data oblivious accesses in order to protect itself from all memory-based side-channels. Furthermore, OBFUSCURO ensures that the program is secure from timing attacks by ensuring that the program always runs for a pre-configured time interval. Along the way, OBFUSCURO also introduces a systematic optimization such as register-based ORAM stash. <br><br>
+
+
+
+		
+			<li><strong>(EuroS&P'19)<a href="https://arxiv.org/abs/1802.09085" target=_blank>SgxPectre Attacks: Stealing Intel Secrets from SGX Enclaves via Speculative Execution</a></strong></li>		
+		
+		This project aims to comprehensively examine the security impact of the CPU vulnerabilities due to speculative execution on Intel SGX. Particularly, we show that when branch prediction of the enclave code can be influenced by programs outside the enclave, the control flow of the enclave program can be temporarily altered to execute instructions that lead to observable cache-state changes. An adversary observing such changes can learn secrets inside the enclave memory or its internal registers, thus completely defeating the confidentiality guarantee offered by SGX. To demonstrate the practicality of our SgxPectre Attacks, we have systematically explored the possible attack vectors of branch target injection, approaches to win the race condition during enclave's speculative execution, and techniques to automatically search for code patterns required for launching the attacks. Our study suggests that any enclave program could be vulnerable to SgxPectre Attacks since the desired code patterns are available in most SGX runtimes (e.g., Intel SGX SDK, Rust-SGX, and Graphene-SGX). Most importantly, we have applied SgxPectre Attacks to steal seal keys and attestation keys from Intel signed quoting enclaves. The seal key can be used to decrypt sealed storage outside the enclaves and forge valid sealed data; the attestation key can be used to forge attestation signatures. For these reasons, SgxPectre Attacks practically defeat SGX's security protection. This paper also systematically evaluates Intel's existing countermeasures against SgxPectre Attacks and discusses the security implications. The project is further explained on the <a href="https://github.com/osusecLab/SgxPectre" target=_blank>project homepage</a>. The research paper can be downloaded from <a href="https://arxiv.org/abs/1802.09085" target=_blank>arxiv.org</a>. <br>
+		
+		<i>Media coverage</i>: <a href="https://twitter.com/hashtag/sgxpectre?lang=en">#sgxpectre</a>, <a href="https://www.zdnet.com/article/new-spectre-attack-variant-can-pry-secrets-from-intels-sgx-protected-enclaves/" target=_blank>zdnet</a>, <a href="https://www.trendmicro.com/vinfo/us/security/news/cyber-attacks/sgxpectre-can-extract-data-from-intel-s-sgx-enclaves" target=_blank>trendmicro</a>, <a href="https://www.techrepublic.com/article/spectre-like-attack-exposes-entire-contents-of-intels-sgx-secure-enclave/" target=_blank>techrepublic</a>, <a href="https://www.theregister.co.uk/2018/03/01/us_researchers_apply_spectrestyle_tricks_to_break_intels_sgx/" target=_blank>theregister</a>, <a href="https://securityonline.info/sgxpectre-new-spectre-attack-variant-compromises-intel-sgx/" target=_blank>securityonline</a>, <a href="https://gbhackers.com/sgxpectre-intel-sgx-enclaves/" target=_blank>gbhackers</a>, and others.<br><br>
+		
+		<li><strong>(Oakland'18) <a href="../papers/sp18a.pdf">Racing in Hyperspace: Closing Hyper-Threading Side Channels on SGX with Contrived Data Races</a></strong></li>
+
+		This project presents HyperRace, an LLVM-based tool for instrumenting SGX enclave programs to eradicate all side-channel threats due to Hyper-Threading (as well as those enabled by interruption and exception). HyperRace creates a shadow thread for each enclave thread and asks the underlying untrusted operating system to schedule both threads on the same physical core whenever enclave code is invoked, so that Hyper-Threading side channels are closed completely. Without placing additional trust in the operating system's CPU scheduler, HyperRace conducts a physical-core co-location test: it first constructs a communication channel between the threads using a shared variable inside the enclave and then measures the communication speed to verify that the communication indeed takes place in the shared L1 data cache—--a strong indicator of physical-core co-location. The key novelty of the work is the measurement of communication speed without a trustworthy clock; instead, relative time measurements are taken via contrived data races on the shared variable. The project is a joint project with Indiana University Bloomington. <br><br>
+		  
+        <li><strong>(CCS'17) <a href="../papers/ccs17a.pdf">Stacco: Differentially Analyzing Side-Channel Traces for Detecting SSL/TLS Vulnerabilities in Secure Enclaves</a></strong></li>
+        
+		In this project, we consider a category of side-channel attacks against SSL/TLS implementations in secure enclaves, which we call the control-flow inference attacks. In these attacks, the malicious operating system kernel may perform a powerful man-in-the-kernel attack to collect execution traces of the enclave programs at the page level, the cacheline level, or the branch level, while positioning itself in the middle of the two communicating parties. At the center of our work is a differential analysis framework, dubbed Stacco, to dynamically analyze the SSL/TLS implementations and detect vulnerabilities--discernible execution traces--that can be exploited as decryption oracles. Surprisingly, in spite of the prevailing constant-time programming paradigm adopted by many cryptographic libraries, we found exploitable vulnerabilities in the latest versions of all the SSL/TLS libraries we have examined. To validate the detected vulnerabilities, we developed a man-in-the-kernel adversary to demonstrate Bleichenbacher attacks against the latest OpenSSL library running in the SGX enclave (with the help of Graphene) and completely broke the PreMasterSecret encrypted by a 4096-bit RSA public key with only 57,286 queries. We also conducted CBC padding oracle attacks against the latest GnuTLS running in Graphene-SGX and an open-source SGX-implementation of mbedTLS (i.e., mbedTLS-SGX) that runs directly inside the enclave, and showed that it only needs 48,388 and 25,717. <br><br>
+		
+		
+		<li><strong>(CCS'17) <a href="../papers/ccs17b.pdf">Leaky Cauldron on the Dark Land: Understanding Memory Side-Channel Hazards in SGX</a></strong></li>
+		In this project, we report the first step toward systematic analyses of side-channel threats that SGX faces, focusing on the risks associated with its memory management. Our research identifies 8 potential attack vectors, ranging from TLB to DRAM modules. More importantly, we highlight the common misunderstandings about SGX memory side channels, demonstrating that high frequent AEXs can be avoided when recovering EdDSA secret key through a new page channel and fine-grained monitoring of enclave programs (at the level of 64B) can be done through combining both cache and cross-enclave DRAM channels. Our findings reveal the gap between the ongoing security research on SGX and its side-channel weaknesses, rede- fine the side-channel threat model for secure enclaves, and can provoke a discussion on when to use such a system and how to use it securely. This research is a joint project with Indiana University Bloomington and UIUC.<br><br>
+        
+        
+        <li><strong>(AsiaCCS'17) <a href="../papers/asiaccs17a.pdf">Detecting Privileged Side-Channel Attacks in Shielded Execution with DEJA VU</a></strong></li>
+        
+        In this paper, we present Deja Vu, a software framework that enables a shielded execution to detect such privileged side-channel attacks. Specifically, we build into shielded execution the ability to check program execution time at the granularity of paths in its control-flow graph. To provide a trustworthy source of time measurement, Deja Vu implements a novel software reference clock that is protected by Intel Transactional Synchronization Extensions (TSX), a hardware implementation of transactional memory. Evaluations show that Deja Vu effectively detects side-channel attacks against shielded ex- ecution and against the reference clock itself. This is a joint project with UNC-Chapel Hill.<br><br>
+        </ul>
+		
+	</div>
+	
+	 
+
+
+Go back to <a href="../home.html">homepage</a>.
+</body>
+</html>

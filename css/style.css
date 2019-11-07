@@ -1,0 +1,102 @@
+* {
+	margin: 0;
+	font-size: 17px;
+}
+
+html {
+	margin: 0;
+	padding:0;
+	height:100%;
+}
+
+body {
+	margin: 0;
+	padding: 0 0 0 10px; 
+  background: #FFFFFF;
+	height: 100%;
+}
+
+h1 {
+	font-size: 200%;
+	padding: 30px 0 15px 0;
+}
+
+h2 {
+	font-size: 130%;
+	padding: 10px 0 10px 0;
+}
+
+
+h3 {
+	font-size: 110%;
+	padding: 10px 0 3px 0;
+}
+
+p { 	
+	padding: 0 0 20px 0;
+	line-height: 1.7em;
+	letter-spacing: 0px;
+	font-size: 125%; 
+}
+	
+a {
+	background-color:transparent
+	color:#000000;
+}
+
+a:hover {
+	color:#B30B0B;
+	background-color:transparent
+}
+
+a:active {
+	color:#B30B0B;
+	background-color:transparent
+}
+
+#conf {
+    font-size: small;
+    color: blue;
+}
+
+img { 
+	border: 0;
+}
+
+span.date {
+	display: inline-block; 
+	width: 80px;
+}
+
+span.course {
+	display: inline-block; 
+	width: 90px;
+}
+
+
+ul.papers li {
+	font-size: 115%;
+	font-weight: bold;
+	padding: 10px 0 3px 0;
+}
+
+ol.papers li {
+   	font-size: 115%;
+ 	font-weight: bold;
+	padding: 10px 0 3px 0;
+}
+
+div.title {
+	margin: 0 0 0 30px;
+}
+
+div.blocks {
+	margin: 10px 0 20px 0;
+}
+
+div.indent {
+	margin: 5px 5px 5px 20px;
+	width: 80%;
+}
+
+

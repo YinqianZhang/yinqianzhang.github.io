@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<title>Yinqian Zhang's Homepage</title>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+	<meta name="description" content="Assistant Professor, Department of Computer Sciense and Engineering, the Ohio State University">
+	<meta name="author" content="Yinqian Zhang">
+	<meta name="robots" content="noarchive, nosnippet, noimageindex"/>
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="expires" content="-1" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-17736033-2', 'auto');
+  ga('send', 'pageview');
+
+	</script>
+</head>
+
+<body>
+
+<br><br>
+	<div class="blocks">
+		<h2>Other Research Projects</h2>
+	 
+		<hr size=2 color="#C4CAE9">
+		
+		<ul>
+			<li><strong>Cache Side Channels (not specific to SGX or clouds)</strong></li>
+			
+			<ul>
+			
+			<li><strong>(ACSAC'18) <a href="../papers/acsac18b.pdf">Analyzing Cache Side Channels Using Deep Neural Networks</a></strong></li>
+			
+			This project proposes a generic approach to evaluating cache side-channel attacks and defenses. Specifically, our method builds a deep neural network with its inputs as the adversary's observed information, and its outputs as the victim's execution traces. By training the neural network, the relationship between the inputs and outputs can be automatically discovered. As a result, the prediction accuracy of the neural network can serve as a metric to quantify how much information the adversary can obtain correctly, and how effective a defense solution is in reducing the information leakage under different attack scenarios.<br><br>
+			
+			
+				<li><strong>(AsiaCCS'18) <a href="../papers/asiaccs18.pdf">Leveraging Hardware Transactional Memory for Cache Side-Channel Defenses</a></strong></li>
+				
+			In this project, we designed a mechanism that leverages hardware transactional memory (HTM) to enable software programs to defend themselves against various cache side-channel attacks. We observe that when the HTM is implemented by retrofitting cache coherence protocols, as is the case of Intel's Transactional Synchronization Extensions, the cache interference that is necessary in cache side-channel attacks will inevitably terminate hardware transactions. We provide a systematic analysis of the security requirements that a software-only solution must meet to defeat cache attacks, propose a software design that leverages HTM to satisfy these requirements and devise several optimization techniques in our implementation to reduce performance impact caused by transaction aborts.<br><br>
+			
+			<li><strong>(CCS'16) <a href="../papers/ccs16b.pdf">Return-Oriented Flush-Reload Side Channels on ARM and Their Implications for Android Devices</a></strong></li>
+
+			Cache side-channel attacks have been extensively studied on x86 architectures, but much less so on ARM processors. The technical challenges to conduct side-channel attacks on ARM, presumably, stem from the poorly documented ARM cache implementations, such as cache coherence protocols and cache flush operations, and also the lack of understanding of how different cache implementations will affect side-channel attacks. In this project, we conducted a systematic exploration of vectors for Flush-Reload attacks on ARM processors. Particularly, we demonstrated in this work a novel construction of flush-reload side channels on last-level caches of ARM processors, which, particularly, exploits return-oriented programming techniques to reload instructions. We also demonstrated several attacks on Android OS (e.g., detecting hardware events and tracing software execution paths) to highlight the implications of such attacks for Android devices.<br><br>
+				
+			</ul>
+			
+			<li><strong>System-level Side Channels</strong></li>
+			
+			<ul>
+			
+			<li><strong>(Oakland'18) <a href="../papers/sp18b.pdf">Static Evaluation of Noninterference Using Approximate Model Counting</a></strong></li>
+			Noninterference is a definition of security for secret values provided to a procedure, which informally is met when attacker-observable outputs are insensitive to the value of the secret inputs or, in other words, the secret inputs do not "interfere" with those outputs. This project studied a static analysis method to measure interference in software. In this approach, interference is assessed using the extent to which different secret inputs are consistent with different attacker-controlled inputs and attacker-observable outputs, which can be measured using a technique called model counting. Leveraging this insight, we develop a flexible interference assessment technique for which the assessment accuracy quantifiably grows with the computational effort invested in the analysis. This paper demonstrates the effectiveness of this technique through application to several case studies, including leakage of: search-engine queries through auto-complete response sizes; secrets subjected to compression together with attacker-controlled inputs; and TCP sequence numbers from shared counters.<br><br>
+			
+			<li><strong>(NDSS'18) <a href="../papers/ndss18a.pdf">OS-level Side Channels without Procfs: Exploring Cross-App Information Leakage on iOS</a></strong></li>
+			In this project, we studied OS-level side-channel attacks on iOS. Specifically, we identified several new side-channel attack vectors (i.e., iOS APIs that enable cross-app information leakage); developed machine learning frameworks (i.e., classification and pattern matching) that combine multiple attack vectors to improve the accuracy of the inference attacks; demonstrated three categories of attacks that exploit these vectors and frameworks to exfiltrate sensitive user information. We have reported our findings to Apple and proposed mitigations to the attacks. Apple has incorporated some of our suggested countermeasures into iOS 11 and MacOS High Sierra 10.13 and later versions.<br>
+			<i>Vulnerability disclosure</i>: <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13852"  target=_blank>CVE-2017-13852</a>, <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13873"  target=_blank>CVE-2017-13873</a>, <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-13877"  target=_blank>CVE-2017-13877</a><br><br>
+			
+
+			</ul>
+			
+			<li><strong>Anonymous Communication</strong></li>
+			
+			<ul>
+				<li><strong>(PETS'17) <a href="../papers/pets17.pdf">Personalized Pseudonyms for Servers in the Cloud</a></strong></li>
+
+				In this project, we opportunistically leverage public clouds to improve privacy of clients from network attackers residing between the clients and the cloud: We design a system that can be deployed by the cloud operator to prevent a network adversary from determining which of the cloud's tenant servers a client is accessing. The core innovation in our design is a PoPSiCl (pronounced "popsicle"), a persistent pseudonym for a tenant server that can be used by a single client to access the server, whose real identity is protected by the cloud from both passive and active network attackers. When instantiated for TLS-based access to web servers, our design works with all major browsers and requires no additional client-side software and minimal changes to the client user experience. Moreover, changes to tenant servers can be hidden in supporting software (operating systems and web-programming frameworks) without imposing on web-content development. Perhaps most notably, our system boosts privacy with minimal impact to web-browsing performance, after some initial setup during a user's first access to each web server.<br><br>
+			</ul>
+			
+		
+			<li><strong>Software Security</strong></li>
+			<ul>
+			
+				<li><strong>(CODASPY'17) <a href="../papers/codaspy17.pdf">Transparent Backward-Edge Control Flow Violation Detection Using Intel Processor Trace</a></strong></li>
+		
+				This paper presents PT-CFI, a new backward-edge control flow integrity (CFI) based on a recently introduced hardware feature in Intel x86 called Processor Trace (PT). Designed primarily for offline software debugging and performance analysis, PT offers the capability of tracing the entire control flow of a running program. In this paper, we explore the practicality of using PT for security applications, and propose a new CFI model that enforces a perfect backward-edge policy for native COTS binaries based on the traces from Intel PT. By exploring the intrinsic tracing properties inside PT with a system call based synchronization primitive and a deep inspection capability, we have addressed a number of tech- nical challenges such as how to make sure the backward edge CFI policy is both sound and complete, how to make PT enforce our CFI policy, and how to balance the performance overhead. <br><br>
+			</ul>
+			<br>
+		
+		</ul>
+		
+	</div>
+
+
+Go back to <a href="../home.html">homepage</a>.
+</body>
+</html>
