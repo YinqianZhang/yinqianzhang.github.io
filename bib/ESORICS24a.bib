@@ -1,0 +1,21 @@
+@InProceedings{10.1007/978-3-031-70903-6_2,
+author="Chen, Weijie
+and Zhao, Yu
+and Zhang, Yinqian
+and Qiang, Weizhong
+and Zou, Deqing
+and Jin, Hai",
+editor="Garcia-Alfaro, Joaquin
+and Kozik, Rafa{\l}
+and Chora{\'{s}}, Micha{\l}
+and Katsikas, Sokratis",
+title="ReminISCence: Trusted Monitoring Against Privileged Preemption Side-Channel Attacks",
+booktitle="Computer Security -- ESORICS 2024",
+year="2024",
+publisher="Springer Nature Switzerland",
+address="Cham",
+pages="24--44",
+abstract="Trusted Execution Environments (TEEs) have long served as a prominent security measure for ensuring isolation and data privacy in cloud environments. However, their security foundations face challenges from numerous side-channel threats, particularly those involving privileged capabilities that enable potent preemption attacks. Various solutions exist to mitigate these attacks, including monitoring-based ones featured with higher efficiency. Unfortunately, existing monitoring-based solutions do not consider privileged preemption attacks and, therefore, are not qualified for trusted monitoring within TEE enclaves. In this paper, we propose ReminISCence, a novel trusted monitoring framework designed to mitigate privileged preemption side-channel attacks on TEE architectures. We present a trusted scheduling design that enforces control over the timer interrupts, which ensures the monitoring relies on untampered trusted time slices with valid lengths and cannot be bypassed via arbitrary timer preemption. Consequently, the privileged adversary is constrained to performing preemption attacks within trusted time slices solely via non-timer interrupts, which are confidentially monitored with full coverage by ReminISCence. We implement the ReminISCence prototype on off-the-shelf RISC-V hardware by extending the OpenSBI and leveraging the RISC-V HPM facility. Our evaluations demonstrate the prototype's effectiveness and resilience to evasion in monitoring and analyzing preemption attacks of various RISC-V microarchitectural side-channels while maintaining high temporal resolution with negligible performance overhead (approximately 1{\%} overhead at a resolution of 125 us).",
+isbn="978-3-031-70903-6"
+}
+
